@@ -1,0 +1,60 @@
+<!-- Modal -->
+<div class="modal fade" id="modalFunciones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form #funcionForm="ngForm" (ngSubmit)="onSubmit(funcionForm)">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group has-feedback">
+                <label for="id">ID</label>
+                <input type="text" name="id" class="form-control" #id="ngModel" [(ngModel)]="funcion.id"
+                  placeholder="Id" required>
+                  <div *ngIf="!id.valid && id.touched" style="color:red">Id invalido</div>
+              </div>
+              <div class="form-group">
+                <label for="plataforma">Plataforma</label>
+                <select name="plataforma" class="form-control" #idPlataforma="ngModel" [(ngModel)]="funcion.idPlataforma">
+                  <option value="1">Web</option>
+                  <option value="2">App</option>
+                  <option value="3">Otros</option>
+                </select>
+              </div>
+              <div class="form-group has-feedback">
+                <label for="disponibilidad">Disponibilidad</label>
+                <select name="disponibilidad" class="form-control">
+                  <option value="">Disponible</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="form-group has-feedback">
+                <div class="form-group has-feedback">
+                  <label for="funcion">Funcion</label>
+                  <input type="text" name="funcion" class="form-control" #fun="ngModel" [(ngModel)]="funcion.fun"
+                   placeholder="Funcion">
+                   <div *ngIf="!fun.valid && fun.touched" style="color:red">Funcion invalida</div>
+                </div>
+              </div>
+              <div class="form-group has-feedback">
+                <label for="parametros">Parametros</label>
+                <input type="text" name="parametros" class="form-control" #parametros="ngModel" [(ngModel)]="funcion.parametros"
+                 placeholder="Parametros" required>                
+                 <div *ngIf="!parametros.valid && parametros.touched" style="color:red">Parametros invalidos</div>                 
+                </div>
+            </div>
+          </div>
+        </div>    
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="funcionForm.invalid">Agregar</button>
+    </div>
+    </form>
+  </div>
+</div>
+</div>

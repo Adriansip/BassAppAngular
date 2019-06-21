@@ -1,0 +1,53 @@
+<!-- OVERVIEW -->
+<div class="panel panel-headline">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{title}}</h3>
+
+    </div>
+    <div class="panel-body">
+      <div id="message"></div>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-info btn-block btn-lg" data-toggle="modal" data-target="#modalFunciones" style="margin-bottom: 20px">
+            Agregar
+          </button>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped" id="tblFunciones">
+          <thead>
+            <th>Plataforma</th>
+            <th>Disponibilidad</th>
+            <th>Funcion</th>
+            <th>Parametros</th>
+            <th>Acciones</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Web</td>
+              <td>Disponible</td>
+              <td>openURL</td>
+              <td>http://</td>
+              <td>
+                <button name="btnEditar" id="btnEditar" class="btn btn-sm btn-info"><i class="lnr lnr-pencil"></i></button>
+                <button name="btnEditar" id="btnEditar" class="btn btn-sm btn-danger"><i class="lnr lnr-trash"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>Web</td>
+              <td>Disponible</td>
+              <td>clic</td>
+              <td>valor</td>
+              <td>
+                <button name="btnEditar" id="btnEditar" class="btn btn-sm btn-info"><i class="lnr lnr-pencil"></i></button>
+                <button name="btnEditar" id="btnEditar" class="btn btn-sm btn-danger"><i class="lnr lnr-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--END OVERVIEW-->
+  <app-funcion-modal></app-funcion-modal>

@@ -1,0 +1,64 @@
+<!-- OVERVIEW -->
+<div class="panel panel-headline">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{title}}</h3>
+
+  </div>
+  <div class="panel-body">
+    <div id="message"></div>
+    <div class="row">
+      <div class="col-md-4">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info btn-block btn-lg" data-toggle="modal"
+         data-target="#modalLicencias" style="margin-bottom: 20px">
+          Agregar
+        </button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped" id="tblLicencias">
+        <thead>
+          <th>ID Licencia</th>
+          <th>Creacion</th>
+          <th>Expiracion</th>
+          <th>Key</th>
+          <th>Ejecutor</th>
+          <th>Acciones</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12345678</td>
+            <td>2017-01-12</td>
+            <td>2018-01-12</td>
+            <td>1GYJ-H7P3-ADR17</td>
+            <td>1</td>
+            <td>
+              <button name="btnDescargar" id="btnEditar" class="btn btn-sm"><i class="lnr lnr-download"></i></button>
+              <button name="btnEditar" id="btnEditar" class="btn btn-sm btn-info"><i
+                  class="lnr lnr-pencil"></i></button>
+              <button name="btnEditar" id="btnEditar" class="btn btn-sm btn-danger"><i
+                  class="lnr lnr-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>12345678</td>
+            <td>2017-01-12</td>
+            <td>2018-01-12</td>
+            <td>1GYJ-H7P3-ADR17</td>
+            <td>1</td>
+            <td>
+              <button name="btnDescargar" id="btnEditar" class="btn btn-sm"><i class="lnr lnr-download"></i></button>
+              <button name="btnEditar" id="btnEditar" class="btn btn-sm btn-info"><i
+                  class="lnr lnr-pencil"></i></button>
+              <button name="btnEditar" id="btnEditar" class="btn btn-sm btn-danger"><i
+                  class="lnr lnr-trash"></i></button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!--END OVERVIEW-->
+<app-licencia-modal></app-licencia-modal>

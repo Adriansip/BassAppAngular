@@ -1,0 +1,75 @@
+<!-- Modal -->
+<div class="modal fade" id="modalUsuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form #usuarioForm="ngForm" (ngSubmit)="onSubmit(usuarioForm)">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+
+            <div class="col-sm-6 col-12">
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" class="form-control" #nombre="ngModel" [(ngModel)]="usuario.nombre"
+                  required pattern="[a-zA-Zñ ]{2,30}" placeholder="Nombre">
+                <div *ngIf="!nombre.valid && nombre.touched" style="color:red">Nombre no valido, solo se permiten caracteres</div>
+              </div>
+              <div class="form-group has-feedback">
+                <label for="apellido">Apellido Paterno</label>
+                <input type="text" name="apellidoPaterno" class="form-control" #apellidoPaterno="ngModel" [(ngModel)]="usuario.apellidoPaterno" 
+                  placeholder="Apellido Paterno" required pattern="[a-zA-Zñ ]{2,30}" maxlength="30">
+                  <div *ngIf="!apellidoPaterno.valid && apellidoPaterno.touched" style="color:red">Apellido no valido, solo se permiten caracteres</div>
+              </div>
+              <div class="form-group has-feedback">
+                <label for="apellidoMat">Apellido Materno</label>
+                <input type="text" name="apellidoMaterno" class="form-control" #apellidoMaterno="ngModel" [(ngModel)]="usuario.apellidoMaterno"
+                  placeholder="Apellido Materno" data-error="Solo caracteres" required pattern="[a-zA-Zñ ]{2,30}" maxlength="30">
+                  <div *ngIf="!apellidoMaterno.valid && apellidoMaterno.touched" style="color:red">Apellido no valido, solo se permiten caracteres</div>
+              </div>
+              <div class="form-group has-feedback">
+                <label for="nickname">NickName</label>
+                <input type="text" class="form-control" name="nickName" placeholder="NickName" #nickName="ngModel" [(ngModel)]="usuario.nickName"
+                  maxlength="20">
+                 <div *ngIf="!nickName.valid && nickName.touched" style="color:red">NickName no valido</div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-12">
+              <div class="form-group">
+                <label for="rol">Rol</label>
+                <select class="form-control" name="idRol" #idRol="ngModel" [(ngModel)]="usuario.idRol">
+                  <option value="1">Usuario</option>
+                  <option value="2">usuario2</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="correo">Correo</label>
+                <input type="email" name="correo" class="form-control" #correo="ngModel" [(ngModel)]="usuario.correo" placeholder="Correo electronico"
+                required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <div *ngIf="!correo.valid && correo.touched" style="color:red">Ingresa un correo valido de la forma algo@ejemplo.com</div>
+              </div>
+              <div class="form-group">
+                <label for="contrasenia">Contraseña</label>
+                <input type="password" name="contrasenia" class="form-control" #contrasenia="ngModel" [(ngModel)]="usuario.contrasenia"
+                  placeholder="**********" required>
+                  <div *ngIf="!contrasenia.valid && contrasenia.touched" style="color:red">Contrasenia invalida</div>
+              </div>
+              <div class="form-group">
+                <label for="hasta">Hasta</label>
+                <input type="date" class="form-control" name="hasta" #hasta="ngModel" [(ngModel)]="usuario.hasta" required>
+                <div *ngIf="!hasta.valid && hasta.touched" style="color:red">Fecha invalida</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="usuarioForm.invalid">Agregar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

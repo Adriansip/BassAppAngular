@@ -1,0 +1,77 @@
+<!-- Modal -->
+<div class="modal fade" id="modalHorasSoporte" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form #horasSoporteForm="ngForm" (onSubmit)="onSubmit(horasSoporteForm)">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div class="form-group">
+                <label for="fecha">Fecha</label>
+                <input type="date" name="fecha" class="form-control"
+                 #fecha="ngModel" [(ngModel)]="horasSoporte.fecha">
+                 <div *ngIf="!fecha.valid && fecha.touched" style="color:red">Fecha invalida</div>
+              </div>
+              <div class="form-group">                
+                  <label for="tipo">Tipo</label>
+                  <select class="form-control" name="tipo" #tipo="ngModel" [(ngModel)]="horasSoporte.idTipo">
+                    <option value="1">Nueva</option>
+                  </select>                
+                  <div *ngIf="!tipo.valid && tipo.touched" style="color:red">Tipo invalido</div>
+              </div>
+              <div class="form-group">
+                <label for="solicita">Solicita</label>
+                <input type="text" name="solicita" class="form-control" placeholder="Solicita" 
+                #solicita="ngModel" [(ngModel)]="horasSoporte.solicita" required>                
+                <div *ngIf="!solicita.valid && solicita.touched" style="color:red">Solicitante invalido</div>
+              </div>
+              <div class="form-group">
+                <label for="descripcion">Descripcion</label>
+                <textarea class="form-control" placeholder="descripcion" name="descripcion" required 
+                #descripcion="ngModel" [(ngModel)]="horasSoporte.descripcion"></textarea>   
+                <div *ngIf="!descripcion.valid && descripcion.touched" style="color:red">Descripcion invalida</div>             
+              </div>            
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="hasta">Fecha de entrega</label>
+              <input type="date" class="form-control" name="fechaEntrega" 
+              #fechaEntrega="ngModel" [(ngModel)]="horasSoporte.fechaEntrega" required>
+              <div *ngIf="!fechaEntrega.valid && fechaEntrega.touched" style="color:red">Fecha invalida</div>             
+            </div>
+            <div class="form-group">
+              <label for="atiende">Atiende</label>
+              <input type="text" name="atiende" class="form-control" placeholder="Atiende"
+              #atiende="ngModel" [(ngModel)]="horasSoporte.atiende" required>
+              <div *ngIf="!atiende.valid && atiende.touched" style="color:red">Valor invalido</div>             
+            </div>
+            <div class="form-group">              
+                <label for="estatus">Estatus</label>
+                <select class="form-control" name="estatus" 
+                #estatus="ngModel" [(ngModel)]="horasSoporte.idEstatus">
+                  <option value="1">Estimacion</option>
+                </select>              
+                <div *ngIf="!estatus.valid && estatus.touched" style="color:red">Estatus invalido</div>
+            </div>
+            <div class="form-group">
+              <label for="horas">Horas</label>
+              <input type="number" name="horas" class="form-control" 
+              #horas="ngModel" [(ngModel)]="horasSoporte.horas" required>
+              <div *ngIf="!horas.valid && horas.touched" style="color:red">Valor invalido</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="horasSoporteForm.invalid">Agregar</button>
+    </div>
+    </form>
+  </div>
+</div>
+</div>
